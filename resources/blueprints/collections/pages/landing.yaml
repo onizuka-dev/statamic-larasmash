@@ -1,0 +1,127 @@
+title: Landing
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: tag_text
+            field:
+              type: text
+              display: 'Tag Text'
+          -
+            handle: subtitle
+            field:
+              type: text
+              display: Subtitle
+          -
+            handle: subtitle_second_line
+            field:
+              type: text
+              display: 'Subtitle second line'
+          -
+            handle: teaser
+            field:
+              type: text
+              display: Teaser
+          -
+            handle: cta_primary_text
+            field:
+              type: text
+              display: 'CTA Primary Text'
+              width: 50
+          -
+            handle: cta_primary_url
+            field:
+              type: text
+              display: 'CTA Primary URL'
+              width: 50
+          -
+            handle: cta_secondary_text
+            field:
+              type: text
+              display: 'CTA Secondary Text'
+              width: 50
+          -
+            handle: cta_secondary_url
+            field:
+              type: text
+              display: 'CTA Secondary URL'
+              width: 50
+      -
+        display: Features
+        fields:
+          -
+            handle: features
+            field:
+              type: replicator
+              display: Features
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          handle: feature_image
+                          field:
+                            max_files: 1
+                            container: assets
+                            type: assets
+                            display: 'Feature Image'
+                            width: 75
+                        -
+                          handle: reversed
+                          field:
+                            type: toggle
+                            display: Reversed
+                            width: 25
+                        -
+                          handle: tag
+                          field:
+                            type: text
+                            display: Tag
+                        -
+                          handle: title
+                          field:
+                            type: text
+                            display: Title
+                        -
+                          handle: description
+                          field:
+                            type: textarea
+                            display: Description
+                        -
+                          handle: items
+                          field:
+                            type: list
+                            display: Items
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

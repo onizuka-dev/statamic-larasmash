@@ -1,38 +1,42 @@
 <!-- Hero Content -->
 <div class="container relative mx-auto px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
     <div class="text-center">
-        <div
-            class="mb-2 inline-flex rounded border border-gray-200 bg-gray-100 px-2 py-1 text-sm font-medium leading-4 text-gray-800 dark:border-gray-600/50 dark:bg-gray-700/50 dark:text-gray-200">
-            Extra Info
-        </div>
+        {{ if tag_text }}
+            <div
+                class="mb-2 inline-flex rounded border border-gray-200 bg-gray-100 px-2 py-1 text-sm font-medium leading-4 text-gray-800 dark:border-gray-600/50 dark:bg-gray-700/50 dark:text-gray-200">
+                {{ tag_text }}
+            </div>
+        {{ /if }}
+
         <h1 class="mb-4 text-4xl font-black text-black dark:text-white">
-            Hero title
-            <span class="text-blue-600 dark:text-blue-500">about what you do</span>
+            {{ subtitle }}
+            <span class="text-blue-600 dark:text-blue-500">{{ subtitle_second_line }}</span>
         </h1>
         <h2 class="mx-auto text-xl font-medium leading-relaxed text-gray-700 dark:text-gray-300 lg:w-2/3">
-            Additional information explaining what your service provides and how
-            it solves your customers’ problems.
+            {{ teaser }}
         </h2>
     </div>
     <div class="flex flex-col gap-2 pb-16 pt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-3">
-        <a href="javascript:void(0)"
+        <a href="{{ cta_primary_url }}"
             class="inline-flex items-center justify-center gap-2 rounded-lg border border-blue-700 bg-blue-700 px-7 py-3.5 font-semibold leading-6 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400/50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400/90">
-            <span>Get Started</span>
+            <span>{{ cta_primary_text }}</span>
         </a>
-        <a href="javascript:void(0)"
+        <a href="{{ cta_secondary_url }}"
             class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-7 py-3.5 font-semibold leading-6 text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
-            <span>Learn more</span>
+            <span>{{ cta_secondary_text }}</span>
         </a>
     </div>
 </div>
 <!-- END Hero Content -->
 
+{{ features }}
 <!-- Features Section: Featured Image Side Alternate -->
 <div class="overflow-hidden bg-white dark:bg-gray-900 dark:text-gray-100">
     <div class="container mx-auto px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
       <div
-        class="flex flex-col gap-12 lg:flex-row-reverse lg:items-center lg:gap-0"
-      >
+        class="flex flex-col gap-12 {{ reversed ? 'lg:flex-row' : 'lg:flex-row-reverse' }} lg:items-center lg:gap-0"
+        >
+
         <div class="group relative flex-none lg:ml-16 lg:w-1/2 xl:ml-28">
           <div
             class="absolute left-0 top-0 hidden h-64 w-full scale-105 rounded-xl bg-amber-500 opacity-40 blur-2xl lg:block"
@@ -42,33 +46,34 @@
           ></div>
           <img
             class="relative mx-auto rounded-br-3xl rounded-tl-3xl"
-            src="https://cdn.tailkit.com/media/placeholders/photo-lzh3hPtJz9c-600x450.jpg"
+            src="{{ feature_image }}"
             alt="Preview Feature Image"
           />
         </div>
         <div class="space-y-10 lg:w-1/2">
           <!-- Heading -->
           <div>
-            <div
-              class="mb-3 inline-flex rounded bg-blue-100 px-2 py-1 text-sm font-semibold leading-4 text-blue-700 dark:bg-blue-950 dark:text-blue-200"
-            >
-              v6.0 is now live!
-            </div>
+            {{ if tag }}
+                <div
+                class="mb-3 inline-flex rounded bg-blue-100 px-2 py-1 text-sm font-semibold leading-4 text-blue-700 dark:bg-blue-950 dark:text-blue-200"
+                >
+                {{ tag }}
+                </div>
+            {{ /if }}
             <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
-              All the new features
+              {{ title }}
             </h2>
             <h3
               class="text-lg font-medium leading-relaxed text-gray-700 dark:text-gray-300"
             >
-              Explore our brand new dashboard with complete control over your UI
-              components. Create and manage projects, build forms easily and apply
-              any color you want to use.
+              {{ description }}
             </h3>
           </div>
           <!-- END Heading -->
 
           <!-- Features -->
           <ul class="space-y-5">
+            {{ items }}
             <li class="flex items-center gap-3">
               <svg
                 class="hi-outline hi-check-circle inline-block size-6 flex-none text-blue-600 dark:text-blue-400"
@@ -85,62 +90,9 @@
                   d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h4 class="font-medium">Enhanced preview pane</h4>
+              <h4 class="font-medium">{{ value }}</h4>
             </li>
-            <li class="flex items-center gap-3">
-              <svg
-                class="hi-outline hi-check-circle inline-block size-6 flex-none text-blue-600 dark:text-blue-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h4 class="font-medium">Color management with custom options</h4>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg
-                class="hi-outline hi-check-circle inline-block size-6 flex-none text-blue-600 dark:text-blue-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h4 class="font-medium">Premium form and button builders</h4>
-            </li>
-            <li class="flex items-center gap-3">
-              <svg
-                class="hi-outline hi-check-circle inline-block size-6 flex-none text-blue-600 dark:text-blue-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h4 class="font-medium">Custom settings for extra control</h4>
-            </li>
+            {{ /items }}
           </ul>
           <!-- END Features -->
         </div>
@@ -148,3 +100,4 @@
     </div>
   </div>
   <!-- END Features Section: Featured Image Side Alternate -->
+{{ /features}}
