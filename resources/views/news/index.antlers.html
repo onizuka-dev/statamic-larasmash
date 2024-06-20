@@ -1,0 +1,95 @@
+<!-- Blog List Section: In Grid -->
+<div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+  <div
+    class="container mx-auto space-y-16 px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl"
+  >
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
+        {{ title }}
+      </h2>
+      <h3
+        class="mx-auto text-xl font-medium leading-relaxed text-gray-700 dark:text-gray-300 lg:w-2/3"
+      >
+        Be sure to
+        <a
+          href="javascript:void(0)"
+          class="text-blue-600 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300"
+          >follow us on X</a
+        >
+        or
+        <a
+          href="javascript:void(0)"
+          class="text-blue-600 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300"
+          >join us</a
+        >
+        to stay up to date about any new posts.
+      </h3>
+    </div>
+    <!-- END Heading -->
+
+    <!-- Blog Posts -->
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+      {{ collection:news }}
+      <div
+        class="flex flex-col overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800"
+      >
+        <a href="{{ url }}" class="group relative block">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-blue-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100"
+          >
+            <svg
+              class="hi-solid hi-arrow-right inline-block size-10 -rotate-45 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <img
+            src="{{ featured_image }}"
+            alt="Featured Image of blog post"
+          />
+        </a>
+        <div class="p-6">
+          <div class="mb-3">
+            <div
+              class="inline-flex rounded-full bg-blue-100 px-2 py-1 text-sm font-semibold leading-4 text-blue-800 dark:bg-blue-900/75 dark:text-blue-200"
+            >
+              travel
+            </div>
+            <div
+              class="inline-flex rounded-full bg-blue-100 px-2 py-1 text-sm font-semibold leading-4 text-blue-800 dark:bg-blue-900/75 dark:text-blue-200"
+            >
+              adventure
+            </div>
+          </div>
+          <h4 class="mb-2 text-lg font-bold sm:text-xl">
+            <a
+              href="{{ url }}"
+              class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400"
+            >
+              {{ title }}
+            </a>
+          </h4>
+          <p class="mb-3 text-sm font-medium text-gray-600 dark:text-gray-400">
+            Date: {{ date }} <br>
+            Author: {{ author:name }}
+          </p>
+          <p class="leading-relaxed text-gray-600 dark:text-gray-400">
+            {{ article_content }}
+          </p>
+        </div>
+      </div>
+      {{ /collection:news }}
+    </div>
+    <!-- END Blog Posts -->
+  </div>
+</div>
+<!-- END Blog List Section: In Grid -->
