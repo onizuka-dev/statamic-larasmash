@@ -1,0 +1,23 @@
+<!-- Blog List Section: In Grid -->
+<div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+  <div
+    class="container mx-auto space-y-16 px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl"
+  >
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
+        Tags
+      </h2>
+    </div>
+    <!-- END Heading -->
+
+    <!-- Blog Posts -->
+    <div class="">
+      {{ tags }}
+        <a class="bg-blue-300 rounded rounded-md text-white p-2" href="{{ url }}">{{ title }}</a>
+      {{ /tags }}
+    </div>
+    <!-- END Blog Posts -->
+  </div>
+</div>
+<!-- END Blog List Section: In Grid -->

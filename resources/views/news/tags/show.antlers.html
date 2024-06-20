@@ -6,7 +6,7 @@
     <!-- Heading -->
     <div class="text-center">
       <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
-        {{ title }}
+        Articles tagged {{ title }}
       </h2>
       <h3
         class="mx-auto text-xl font-medium leading-relaxed text-gray-700 dark:text-gray-300 lg:w-2/3"
@@ -30,7 +30,7 @@
 
     <!-- Blog Posts -->
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-      {{ collection:news }}
+      {{ entries }}
       <div
         class="flex flex-col overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800"
       >
@@ -86,7 +86,7 @@
           </p>
         </div>
       </div>
-      {{ /collection:news }}
+      {{ /entries }}
     </div>
     <!-- END Blog Posts -->
   </div>
