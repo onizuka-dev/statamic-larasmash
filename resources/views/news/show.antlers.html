@@ -43,7 +43,12 @@
 
     <!-- Blog Post -->
     <article class="prose prose-lg prose-blue mx-auto dark:prose-invert">
-      <img src="{{ featured_image }}" alt="{{ featured_image:alt}}" class="rounded-lg" />
+      <!-- <img src="{{ featured_image }}" alt="{{ featured_image:alt}}" class="rounded-lg" /> -->
+       <img
+        src="{{ glide :src="featured_image" :width="1200" :height="800" filter="greyscale" sharpen="100" }}"
+        alt="{{ featured_image:alt }}"
+        class="rounded-lg rotate-2"
+        >
       <p>{{ article_content }}</p>
     </article>
     <!-- END Blog Post -->
