@@ -6,26 +6,12 @@
           Products
         </h4>
         <nav class="flex flex-col gap-3 text-sm">
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Solutions
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Features
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Pricing Plans
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Analytics
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Support Center
-          </a>
+          {{ nav:footer_products }}
+            <a href="{{ url }}"
+              class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
+              {{ title }}
+            </a>
+          {{ /nav:footer_products }}
         </nav>
       </div>
       <div class="space-y-6">
@@ -33,26 +19,12 @@
           Legal
         </h4>
         <nav class="flex flex-col gap-3 text-sm">
-          <a href="javascript:void(0)"
+          {{ nav:footer_legal }}
+          <a href="{{ url }}"
             class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Team
+            {{ title }}
           </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Terms of Service
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Privacy Policy
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Cookies
-          </a>
-          <a href="javascript:void(0)"
-            class="font-medium text-gray-700 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-50">
-            Refunds
-          </a>
+          {{ /nav:footer_legal }}
         </nav>
       </div>
       <div class="space-y-6">
