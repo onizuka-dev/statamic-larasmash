@@ -1,0 +1,51 @@
+<!-- Blog List Section: In Grid -->
+<div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+  <div class="container mx-auto space-y-16 px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
+        Search results for {{ get:q}}
+      </h2>
+    </div>
+    <!-- END Heading -->
+
+    <!-- Blog Posts -->
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+
+      {{ search:results index="default" }}
+        {{ if no_results }}
+          <h2>No results found for {{ get:q }}.</h2>
+        {{ else }}
+          <div class="grid grid-cols-1 gap-12">
+            <div>
+              <p class="mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
+                {{ date }}
+              </p>
+              <h4 class="mb-2 text-lg font-bold sm:text-xl">
+                <a
+                  href="{{ url }}"
+                  class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400"
+                >
+                  {{ title }}
+                </a>
+              </h4>
+              <p
+                class="mb-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400"
+              >
+                {{ content ?? subtitle ?? excerpt ?? teaser ?? article_content | safe_truncate:100 }}
+              </p>
+              <a
+                href="{{ url }}"
+                class="text-sm font-medium text-blue-600 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300"
+                >Read More</a
+              >
+            </div>
+          </div>
+        {{ /if }}
+      {{ /search:results }}
+
+    </div>
+    <!-- END Blog Posts -->
+  </div>
+</div>
+<!-- END Blog List Section: In Grid -->
