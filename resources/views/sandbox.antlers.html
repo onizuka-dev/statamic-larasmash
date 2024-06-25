@@ -1,0 +1,72 @@
+---
+string: Hello andbox! I am a single line string.
+block: |
+  I am a multi-line block. If it was Markdown, **this would be bold**.
+
+  And this would be a new paragraph.
+bool: true
+int: 3
+y2k: 2000-01-01
+listing:
+  - Ryu
+  - Ken
+  - Chun-Li
+fighters:
+  - { name: Bruce Lee, style: Jeet Kune Do }
+  - { name: Jackie Chan, style: Drunken Fist }
+dreamers:
+  - { name: Ricardo Hernández, style: Engineer }
+address:
+  city: Orlando
+  state: Florida
+  zip: 32801
+---
+<h1 class="font-bold text-lg">Variables</h1>
+{{ $view:fighters }}
+  {{ name }} practices {{ style }}. <br>
+{{ /$view:fighters }}
+
+<br>
+
+{{ $view:address }}
+  {{ city }}, {{ state }} {{ zip }} <br>
+{{ /$view:address }}
+
+{{ str = 'foo' }}
+{{ str }}
+
+<br><br>
+
+{{ myarray = ['one', 'two', 'three'] }}
+{{ myarray }}
+  {{ value }}
+{{ /myarray }}
+
+<br><br>
+
+{{ people = view:fighters merge view:dreamers }}
+{{ people }}
+  {{ name }} is a {{ style }}. <br>
+{{ /people }}
+
+<br><br>
+
+<h1 class="font-bold text-lg">Logic</h1>
+
+{{ if view:bool }} It's true! {{ else }} It's false! {{ /if }} <br>
+{{ view:bool ? "It's true!" : "It's false!" }} <br>
+{{ view:bool ?= "It's true!" }}
+{{ view:bool ?= {partial:test} }}
+<br><br>
+
+{{ if view:int > 5 }} It's greater than 5! {{ else }} It's less than 5! {{ /if }}
+
+<br><br>
+
+<h1 class="font-bold text-lg">Query data</h1>
+
+{{ news = {collection:news limit="5" sort="date"} }}
+
+{{ news limit="2" }}
+  {{ title }} - {{ date }} <br>
+{{ /news }}
