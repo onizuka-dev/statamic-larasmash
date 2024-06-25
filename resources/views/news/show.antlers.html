@@ -49,7 +49,20 @@
         alt="{{ featured_image:alt }}"
         class="rounded-lg rotate-2"
         >
-      <p>{{ article_content }}</p>
+
+        {{ article_content }}
+          {{ if type == "text" }}
+            {{ text }}
+          {{ elseif type == "quote" }}
+            {{ partial:quote }}
+          {{ elseif type == "related_articles"}}
+            {{ related_entries }}
+              <a class="bg-purple-300 text-purple-800 p-4 rounded" href="{{ url }}"><strong>Related: </strong>{{ title }}</a>
+            {{ /related_entries }}
+          {{ elseif type == "embed" }}
+            {{ partial :src="embed_template" }}
+          {{ /if }}
+        {{ /article_content }}
     </article>
     <!-- END Blog Post -->
   </div>

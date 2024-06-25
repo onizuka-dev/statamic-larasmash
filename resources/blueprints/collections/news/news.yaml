@@ -41,6 +41,57 @@ tabs:
               container: assets
               type: bard
               display: 'Article Content'
+              sets:
+                quote:
+                  display: Quote
+                  sets:
+                    quote:
+                      display: Quote
+                      fields:
+                        -
+                          handle: text
+                          field:
+                            buttons:
+                              - bold
+                              - italic
+                              - unorderedlist
+                              - orderedlist
+                              - removeformat
+                              - quote
+                              - anchor
+                            save_html: true
+                            toolbar_mode: floating
+                            remove_empty_nodes: false
+                            link_noreferrer: true
+                            target_blank: true
+                            type: bard
+                            display: Text
+                        -
+                          handle: author
+                          field:
+                            type: text
+                            display: Author
+                    related_articles:
+                      display: 'Related Articles'
+                      fields:
+                        -
+                          handle: related_entries
+                          field:
+                            create: false
+                            collections:
+                              - news
+                            type: entries
+                            display: 'Related Entries'
+                    embed:
+                      display: Embed
+                      fields:
+                        -
+                          handle: embed_template
+                          field:
+                            hide_partials: false
+                            folder: partials
+                            type: template
+                            display: 'Embed Template'
           -
             handle: template
             field:
@@ -66,3 +117,11 @@ tabs:
               default: now
               validate:
                 - required
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
